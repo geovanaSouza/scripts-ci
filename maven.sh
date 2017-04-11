@@ -28,7 +28,7 @@ mvn_execute(){
   echo PROJECT_NAME=${PROJECT_NAME}
   echo MVN_ARGS=${MVN_ARGS}
 
-  cd $WORKSPACE/src/${PROJECTS_DIR}
+  cd $WORKSPACE/src/${PROJECTS_NAME}
   mvn ${MVN_ARGS}
   cd $WORKSPACE
 }
