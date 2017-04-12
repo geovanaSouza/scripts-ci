@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source src/.ci-env-var
-
 #Maven Options:
 #  To execute build:
 #  PreReq:
