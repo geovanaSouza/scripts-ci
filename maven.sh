@@ -28,12 +28,14 @@ mvn_execute(){
   echo PROJECT_NAME=${PROJECT_NAME}
   echo MVN_ARGS=${MVN_ARGS}
 
+  cd ${PROJECTS_DIR}/${PROJECT_NAME}
 
   if [[ "$MVN_ARGS" == 'manual_replace' ]]; then
     xmlstarlet edit -L -N pom=http://maven.apache.org/POM/4.0.0 -u '/pom:project/pom:parent/pom:version' -v "${PROJECT_VERSION}" pom.xml
   else
     mvn ${MVN_ARGS}
   fi
+  cd $WORKSPACE
 }
 
 
