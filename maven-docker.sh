@@ -45,7 +45,7 @@ mvn_execute(){
   if [[ "$MVN_ARGS" == 'manual_replace' ]]; then
     xmlstarlet edit -L -N pom=http://maven.apache.org/POM/4.0.0 -u '/pom:project/pom:parent/pom:version' -v "${PROJECT_VERSION}" ${PROJECTS_DIR}/${PROJECT_NAME}/pom.xml
   else
-    docker run --rm  -v "$PWD":/usr/src/mymaven -v "SCRITPS_CI_PATH/.bowerrc":/root/.bowerrc -v "$CONFIGS_CI_PATH/maven/$CONFIG_APPLICATION/maven-settings.xml":/usr/share/maven/ref/settings.xml -v "$JENKINS_HOME/.m2/repository":/usr/share/maven/repository -w /usr/src/mymaven maven:3-jdk-7 /bin/bash -c "cd ${PROJECTS_DIR}/${PROJECT_NAME}; mvn ${MVN_ARGS}"
+    docker run --rm  -v "$PWD":/usr/src/mymaven -v "$SCRITPS_CI_PATH/.bowerrc":/root/.bowerrc -v "$CONFIGS_CI_PATH/maven/$CONFIG_APPLICATION/maven-settings.xml":/usr/share/maven/ref/settings.xml -v "$JENKINS_HOME/.m2/repository":/usr/share/maven/repository -w /usr/src/mymaven maven:3-jdk-7 /bin/bash -c "cd ${PROJECTS_DIR}/${PROJECT_NAME}; mvn ${MVN_ARGS}"
     #--name ${CONTAINER_NAME}
   fi
 }
