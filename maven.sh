@@ -47,8 +47,3 @@ do
   MVN_ARGS=$(jq ".$ACTION[$key].task" $WORKSPACE/.maven-ci.json | tr -d '"')
   mvn_execute $PROJECT_NAME "${MVN_ARGS}"
 done
-#
-#
-#
-#
-#
